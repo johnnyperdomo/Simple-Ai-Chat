@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9202048A497186FF22280A6 /* Pods_SimpleAI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155E5B17EA2FFD77060A6CB0 /* Pods_SimpleAI.framework */; };
 		FE7DFDC3216415B900E8A2FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DFDC2216415B900E8A2FB /* AppDelegate.swift */; };
 		FE7DFDC5216415B900E8A2FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7DFDC4216415B900E8A2FB /* ViewController.swift */; };
 		FE7DFDC8216415B900E8A2FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE7DFDC6216415B900E8A2FB /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		155E5B17EA2FFD77060A6CB0 /* Pods_SimpleAI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleAI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39AC4B8E739068557D26C8D2 /* Pods-SimpleAI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleAI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleAI/Pods-SimpleAI.debug.xcconfig"; sourceTree = "<group>"; };
+		B87F10B2A99E8D4870254329 /* Pods-SimpleAI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleAI.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleAI/Pods-SimpleAI.release.xcconfig"; sourceTree = "<group>"; };
 		FE7DFDBF216415B900E8A2FB /* SimpleAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7DFDC2216415B900E8A2FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE7DFDC4216415B900E8A2FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9202048A497186FF22280A6 /* Pods_SimpleAI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		797E361596075B47F65C4BCE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39AC4B8E739068557D26C8D2 /* Pods-SimpleAI.debug.xcconfig */,
+				B87F10B2A99E8D4870254329 /* Pods-SimpleAI.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C3161D9CCF3B442412055F66 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				155E5B17EA2FFD77060A6CB0 /* Pods_SimpleAI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FE7DFDB6216415B900E8A2FB = {
 			isa = PBXGroup;
 			children = (
 				FE7DFDC1216415B900E8A2FB /* SimpleAI */,
 				FE7DFDC0216415B900E8A2FB /* Products */,
+				797E361596075B47F65C4BCE /* Pods */,
+				C3161D9CCF3B442412055F66 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE7DFDD1216415BA00E8A2FB /* Build configuration list for PBXNativeTarget "SimpleAI" */;
 			buildPhases = (
+				4F7A318C0CBBD62975F0EC96 /* [CP] Check Pods Manifest.lock */,
 				FE7DFDBB216415B900E8A2FB /* Sources */,
 				FE7DFDBC216415B900E8A2FB /* Frameworks */,
 				FE7DFDBD216415B900E8A2FB /* Resources */,
+				11C374F001C8CBE1B23AC7C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11C374F001C8CBE1B23AC7C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SimpleAI/Pods-SimpleAI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleAI/Pods-SimpleAI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F7A318C0CBBD62975F0EC96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimpleAI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FE7DFDBB216415B900E8A2FB /* Sources */ = {
@@ -280,15 +349,13 @@
 		};
 		FE7DFDD2216415BA00E8A2FB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39AC4B8E739068557D26C8D2 /* Pods-SimpleAI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JX3EAWJE5N;
 				INFOPLIST_FILE = SimpleAI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnnyperdomo.SimpleAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -298,15 +365,13 @@
 		};
 		FE7DFDD3216415BA00E8A2FB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B87F10B2A99E8D4870254329 /* Pods-SimpleAI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JX3EAWJE5N;
 				INFOPLIST_FILE = SimpleAI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnnyperdomo.SimpleAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
