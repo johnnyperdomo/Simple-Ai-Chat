@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         let messagesTableView = UITableView()
         messagesTableView.register(MessagesViewCell.self, forCellReuseIdentifier: "cellId")
         messagesTableView.translatesAutoresizingMaskIntoConstraints = false
-        messagesTableView.isUserInteractionEnabled = false
+        messagesTableView.isScrollEnabled = true
         return messagesTableView
     }()
     
@@ -25,15 +25,14 @@ class ViewController: UIViewController {
         pageTitle.translatesAutoresizingMaskIntoConstraints = false
         pageTitle.textColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
         
-        let attributedText = NSMutableAttributedString(string: "Smart A.I.", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 25)])
+        let attributedText = NSMutableAttributedString(string: "Smart A.I. Chat", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 25)])
         
         pageTitle.attributedText = attributedText
         return pageTitle
     }()
     
-    let messagesArray = [
-        MessageModel(content: "Hey What's Up", id: "user"),
-        MessageModel(content: "Nothing Much how about you sir?", id: "agent")
+    var messagesArray = [
+        MessageModel(content: "Hey What's Up, Ask me Something. I'm Super Smart", id: "agent")
     ]
     
     @IBOutlet weak var sendBtn: UIButton!
@@ -42,6 +41,8 @@ class ViewController: UIViewController {
     @IBAction func sendBtnClicked(_ sender: Any) {
         if messageField.text != nil && messageField.text != "" {
             queryResponse(query: messageField.text!)
+            messagesArray.append(MessageModel(content: messageField.text!, id: "user"))
+            messagesTableView.reloadData()
             messageField.text = ""
         }
     }
@@ -71,8 +72,10 @@ class ViewController: UIViewController {
         AI.sharedService.textRequest(query).success { (response) in
             
             if let speech = response.result.fulfillment?.speech {
-                print(speech)
+                self.messagesArray.append(MessageModel(content: speech, id: "agent"))
+                self.messagesTableView.reloadData()
                 print(response)
+                
             }
             }.failure { (error) in
                 print(error)

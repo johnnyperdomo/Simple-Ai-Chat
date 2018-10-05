@@ -21,7 +21,7 @@ class MessagesViewCell: UITableViewCell {
             if unwrappedMessage.id == "user" {
                 leftConstraint.isActive = false
                 rightConstraint.isActive = true
-                bubbleBackgroundView.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                bubbleBackgroundView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
                 messageTextLbl.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             } else {
                 rightConstraint.isActive = false
@@ -43,8 +43,8 @@ class MessagesViewCell: UITableViewCell {
     private let bubbleBackgroundView: UIView = {
         let bubbleBackgroundView = UIView()
         bubbleBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        bubbleBackgroundView.layer.cornerRadius = 10
-        bubbleBackgroundView.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        bubbleBackgroundView.layer.cornerRadius = 15
+        bubbleBackgroundView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         return bubbleBackgroundView
     }()
     
