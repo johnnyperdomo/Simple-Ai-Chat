@@ -16,12 +16,13 @@ class ViewController: UIViewController {
         let messagesTableView = UITableView()
         messagesTableView.register(MessagesViewCell.self, forCellReuseIdentifier: "cellId")
         messagesTableView.translatesAutoresizingMaskIntoConstraints = false
+        messagesTableView.isUserInteractionEnabled = false
         return messagesTableView
     }()
     
     let messagesArray = [
         MessageModel(content: "Hey What's Up", id: "user"),
-        MessageModel(content: "Hey What's Up", id: "user")
+        MessageModel(content: "Nothing Much how about you sir?", id: "user")
     ]
     
     
@@ -71,8 +72,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         let message = messagesArray[indexPath.row]
         cell.message = message
-        cell.backgroundColor = .white
-        
+        cell.backgroundColor = .clear
         cell.layer.cornerRadius = 10
         return cell
     }
