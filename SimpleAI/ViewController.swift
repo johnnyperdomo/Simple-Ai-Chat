@@ -11,9 +11,16 @@ import AI
 
 class ViewController: UIViewController {
 
+
+    @IBOutlet weak var messagesCollectionView: UICollectionView!
+    @IBOutlet weak var messageField: UITextField!
+    @IBOutlet weak var sendBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        messagesCollectionView.delegate = self
+        messagesCollectionView.dataSource = self
+        
         AI.sharedService.textRequest("You're dumb").success { (response) in
             if let speech = response.result.fulfillment?.speech {
                 print(speech)
@@ -24,7 +31,18 @@ class ViewController: UIViewController {
         }
 
     }
-
-
 }
 
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MessagesViewCell
+        
+        cell.layer.cornerRadius = 10
+        return cell
+    }
+}

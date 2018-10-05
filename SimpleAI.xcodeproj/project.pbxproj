@@ -13,6 +13,8 @@
 		FE7DFDC8216415B900E8A2FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE7DFDC6216415B900E8A2FB /* Main.storyboard */; };
 		FE7DFDCA216415BA00E8A2FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE7DFDC9216415BA00E8A2FB /* Assets.xcassets */; };
 		FE7DFDCD216415BA00E8A2FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE7DFDCB216415BA00E8A2FB /* LaunchScreen.storyboard */; };
+		FEEE4B9B2167D0DD0060ED5A /* MessagesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE4B9A2167D0DD0060ED5A /* MessagesViewCell.swift */; };
+		FEEE4B9D2167D36C0060ED5A /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE4B9C2167D36C0060ED5A /* MessageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		FE7DFDC9216415BA00E8A2FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE7DFDCC216415BA00E8A2FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE7DFDCE216415BA00E8A2FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEEE4B9A2167D0DD0060ED5A /* MessagesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewCell.swift; sourceTree = "<group>"; };
+		FEEE4B9C2167D36C0060ED5A /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +84,12 @@
 			children = (
 				FE7DFDC2216415B900E8A2FB /* AppDelegate.swift */,
 				FE7DFDC4216415B900E8A2FB /* ViewController.swift */,
+				FEEE4B9A2167D0DD0060ED5A /* MessagesViewCell.swift */,
 				FE7DFDC6216415B900E8A2FB /* Main.storyboard */,
 				FE7DFDC9216415BA00E8A2FB /* Assets.xcassets */,
 				FE7DFDCB216415BA00E8A2FB /* LaunchScreen.storyboard */,
 				FE7DFDCE216415BA00E8A2FB /* Info.plist */,
+				FEEE4B9C2167D36C0060ED5A /* MessageModel.swift */,
 			);
 			path = SimpleAI;
 			sourceTree = "<group>";
@@ -201,7 +207,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE7DFDC5216415B900E8A2FB /* ViewController.swift in Sources */,
+				FEEE4B9B2167D0DD0060ED5A /* MessagesViewCell.swift in Sources */,
 				FE7DFDC3216415B900E8A2FB /* AppDelegate.swift in Sources */,
+				FEEE4B9D2167D36C0060ED5A /* MessageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +359,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JX3EAWJE5N;
 				INFOPLIST_FILE = SimpleAI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnnyperdomo.SimpleAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -367,7 +378,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JX3EAWJE5N;
 				INFOPLIST_FILE = SimpleAI/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnnyperdomo.SimpleAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
