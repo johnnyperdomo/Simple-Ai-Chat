@@ -36,12 +36,19 @@ class ViewController: UIViewController {
         MessageModel(content: "Nothing Much how about you sir?", id: "agent")
     ]
     
-    
-    @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var messageField: UITextField!
+    
+    @IBAction func sendBtnClicked(_ sender: Any) {
+        if messageField.text != nil && messageField.text != "" {
+            queryResponse(query: messageField.text!)
+            messageField.text = ""
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         messagesTableView.dataSource = self
         messagesTableView.delegate = self
         messagesTableView.separatorStyle = .none
@@ -58,7 +65,11 @@ class ViewController: UIViewController {
         pageTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         pageTitle.bottomAnchor.constraint(equalTo: messagesTableView.topAnchor, constant: -18).isActive = true
 
-        AI.sharedService.textRequest("You're dumb").success { (response) in
+    }
+    
+    func queryResponse(query: String) {
+        AI.sharedService.textRequest(query).success { (response) in
+            
             if let speech = response.result.fulfillment?.speech {
                 print(speech)
                 print(response)
@@ -66,7 +77,6 @@ class ViewController: UIViewController {
             }.failure { (error) in
                 print(error)
         }
-
     }
 }
 
