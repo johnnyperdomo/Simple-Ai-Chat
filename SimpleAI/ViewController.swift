@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     let messagesArray = [
         MessageModel(content: "Hey What's Up", id: "user"),
-        MessageModel(content: "Nothing Much how about you sir?", id: "user")
+        MessageModel(content: "Nothing Much how about you sir?", id: "agent")
     ]
     
     
