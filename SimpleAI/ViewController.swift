@@ -11,16 +11,39 @@ import AI
 
 class ViewController: UIViewController {
 
-
-    @IBOutlet weak var messagesCollectionView: UICollectionView!
+    
+    let messagesTableView: UITableView = {
+        let messagesTableView = UITableView()
+        messagesTableView.register(MessagesViewCell.self, forCellReuseIdentifier: "cellId")
+        messagesTableView.translatesAutoresizingMaskIntoConstraints = false
+        return messagesTableView
+    }()
+    
+    let messagesArray = [
+        MessageModel(content: "Hey What's Up", id: "user"),
+        MessageModel(content: "Hey What's Up", id: "user")
+    ]
+    
+    
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        messagesCollectionView.delegate = self
-        messagesCollectionView.dataSource = self
+        messagesTableView.dataSource = self
+        messagesTableView.delegate = self
+        messagesTableView.separatorStyle = .none
+        messagesTableView.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1)
         
+        view.addSubview(messagesTableView)
+        
+        messagesTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        messagesTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        messagesTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        messagesTableView.bottomAnchor.constraint(equalTo: messageField.topAnchor, constant: -20).isActive = true
+        
+        
+
         AI.sharedService.textRequest("You're dumb").success { (response) in
             if let speech = response.result.fulfillment?.speech {
                 print(speech)
@@ -33,16 +56,26 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MessagesViewCell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messagesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! MessagesViewCell
+        
+        let message = messagesArray[indexPath.row]
+        cell.message = message
+        cell.backgroundColor = .white
         
         cell.layer.cornerRadius = 10
         return cell
     }
+    
+
 }
