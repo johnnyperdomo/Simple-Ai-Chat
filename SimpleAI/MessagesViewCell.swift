@@ -38,7 +38,6 @@ class MessagesViewCell: UITableViewCell {
         messageTextlbl.translatesAutoresizingMaskIntoConstraints = false
         messageTextlbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         return messageTextlbl
-        
     }()
     
     private let bubbleBackgroundView: UIView = {
@@ -47,7 +46,6 @@ class MessagesViewCell: UITableViewCell {
         bubbleBackgroundView.layer.cornerRadius = 10
         bubbleBackgroundView.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         return bubbleBackgroundView
-        
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -60,7 +58,6 @@ class MessagesViewCell: UITableViewCell {
     func setUpLayout() {
         addSubview(bubbleBackgroundView)
         addSubview(messageTextLbl)
-        
         
         messageTextLbl.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
         messageTextLbl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32).isActive = true

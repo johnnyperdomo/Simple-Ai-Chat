@@ -20,6 +20,17 @@ class ViewController: UIViewController {
         return messagesTableView
     }()
     
+    private let pageTitle: UILabel = {
+        let pageTitle = UILabel()
+        pageTitle.translatesAutoresizingMaskIntoConstraints = false
+        pageTitle.textColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
+        
+        let attributedText = NSMutableAttributedString(string: "Smart A.I.", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 25)])
+        
+        pageTitle.attributedText = attributedText
+        return pageTitle
+    }()
+    
     let messagesArray = [
         MessageModel(content: "Hey What's Up", id: "user"),
         MessageModel(content: "Nothing Much how about you sir?", id: "agent")
@@ -37,13 +48,15 @@ class ViewController: UIViewController {
         messagesTableView.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1)
         
         view.addSubview(messagesTableView)
+        view.addSubview(pageTitle)
         
         messagesTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         messagesTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         messagesTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         messagesTableView.bottomAnchor.constraint(equalTo: messageField.topAnchor, constant: -20).isActive = true
         
-        
+        pageTitle.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        pageTitle.bottomAnchor.constraint(equalTo: messagesTableView.topAnchor, constant: -18).isActive = true
 
         AI.sharedService.textRequest("You're dumb").success { (response) in
             if let speech = response.result.fulfillment?.speech {
