@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import AI
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        AI.sharedService.textRequest("You're dumb").success { (response) in
+            if let speech = response.result.fulfillment?.speech {
+                print(speech)
+                print(response)
+            }
+            }.failure { (error) in
+                print(error)
+        }
+
     }
 
 

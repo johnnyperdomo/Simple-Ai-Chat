@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import AI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        AI.configure("aff73830ae7f4b4d8b360dd3a1bc57d4")
+        
         return true
     }
 

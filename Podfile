@@ -6,7 +6,5 @@ target 'SimpleAI' do
   use_frameworks!
 
   # Pods for SimpleAI
-    pod 'Alamofire', '~> 4.7'
-    pod 'SnapKit'
-    pod 'PromiseKit', '~> 6.0'
+    pod 'AI'
 end
