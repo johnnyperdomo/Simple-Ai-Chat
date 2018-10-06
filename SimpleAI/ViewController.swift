@@ -17,6 +17,8 @@ class ViewController: UIViewController {
         messagesTableView.register(MessagesViewCell.self, forCellReuseIdentifier: "cellId")
         messagesTableView.translatesAutoresizingMaskIntoConstraints = false
         messagesTableView.isScrollEnabled = true
+        
+        
         return messagesTableView
     }()
     
@@ -54,6 +56,8 @@ class ViewController: UIViewController {
         messagesTableView.delegate = self
         messagesTableView.separatorStyle = .none
         messagesTableView.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1)
+        messagesTableView.rowHeight = UITableView.automaticDimension
+        messagesTableView.estimatedRowHeight = 200
         
         view.addSubview(messagesTableView)
         view.addSubview(pageTitle)
@@ -84,6 +88,23 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return UITableView.automaticDimension
+        } else {
+            return 40
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return UITableView.automaticDimension
+        } else {
+            return 40
+        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
