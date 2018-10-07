@@ -42,6 +42,6 @@ You'll have to configure your ```DialogFlow``` account to have access to A.I. tr
    //File: Appdelegate.swift
    AI.configure(YOUR_PERSONAL_CLIENT_ACCESS_TOKEN)
    ```
-4. Start communication with your A.I :stuck_out_tongue: :alien: :smirk:
+4. Start communicating with your A.I. to take over the world!!! :stuck_out_tongue: :alien: :smirk:
 ## License
 Standard MIT [License](https://github.com/johnnyperdomo/Simple-Ai-Chat/blob/master/LICENSE)
