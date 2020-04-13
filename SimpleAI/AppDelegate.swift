@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        AI.configure("aff73830ae7f4b4d8b360dd3a1bc57d4")
+        AI.configure("INSERT_API_KEY")
         
         return true
     }
